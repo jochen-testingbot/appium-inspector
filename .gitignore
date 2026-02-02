@@ -1,7 +1,6 @@
 node_modules
 
 dist
-dist-browser
 release
 site
 plugins/package-lock.json
