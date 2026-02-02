@@ -56,6 +56,7 @@ const Session = (props) => {
     setVisibleProviders,
     bindWindowClose,
     initFromQueryString,
+    initPostMessageListener,
     setPortFromUrl,
     showError,
   } = props;
@@ -96,6 +97,7 @@ const Session = (props) => {
         await setSavedServerParams();
         await setLocalServerParams();
         await setPortFromUrl();
+        initPostMessageListener(loadNewSession);
         initFromQueryString(loadNewSession);
         await initFromSessionFile();
       } catch (e) {
@@ -108,6 +110,7 @@ const Session = (props) => {
     getSavedSessions,
     initFromQueryString,
     initFromSessionFile,
+    initPostMessageListener,
     loadNewSession,
     setLocalServerParams,
     setPortFromUrl,

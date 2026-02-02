@@ -1038,8 +1038,83 @@ export function setPortFromUrl() {
   };
 }
 
-export function initFromQueryString(loadNewSession) {
+// Allowed origins for postMessage communication (for iframe embedding)
+const TESTINGBOT_ALLOWED_ORIGINS = [
+  'https://testingbot.com',
+  'https://www.testingbot.com',
+  'https://app.testingbot.com',
+];
+
+/**
+ * Set up postMessage listener for secure iframe communication with TestingBot.
+ * The parent page sends session credentials via postMessage instead of URL parameters.
+ *
+ * Expected message format:
+ * {
+ *   type: 'APPIUM_INSPECTOR_CONNECT',
+ *   sessionId: string,
+ *   key: string,
+ *   secret: string
+ * }
+ */
+export function initPostMessageListener(loadNewSession) {
   return (dispatch, getState) => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleMessage = async (event) => {
+      // Validate origin for security
+      if (!TESTINGBOT_ALLOWED_ORIGINS.includes(event.origin)) {
+        return;
+      }
+
+      const {data} = event;
+
+      // Validate message structure
+      if (data?.type !== 'APPIUM_INSPECTOR_CONNECT') {
+        return;
+      }
+
+      const {sessionId, key, secret} = data;
+
+      if (!sessionId || !key || !secret) {
+        log.warn('Received APPIUM_INSPECTOR_CONNECT message with missing fields');
+        return;
+      }
+
+      // Remove listener after receiving valid credentials (one-time use)
+      window.removeEventListener('message', handleMessage);
+
+      // Set up TestingBot configuration and auto-attach to session
+      await changeServerType(SERVER_TYPES.TESTINGBOT)(dispatch);
+      await setServerParam('username', key, SERVER_TYPES.TESTINGBOT)(dispatch, getState);
+      await setServerParam('accessKey', secret, SERVER_TYPES.TESTINGBOT)(dispatch, getState);
+      dispatch({type: SET_ATTACH_SESS_ID, attachSessId: sessionId});
+
+      // Notify parent that we're connecting
+      event.source?.postMessage({type: 'APPIUM_INSPECTOR_CONNECTING', sessionId}, event.origin);
+
+      const success = await loadNewSession(null, sessionId);
+
+      // Notify parent of the result
+      event.source?.postMessage(
+        {type: success ? 'APPIUM_INSPECTOR_CONNECTED' : 'APPIUM_INSPECTOR_ERROR', sessionId},
+        event.origin,
+      );
+    };
+
+    window.addEventListener('message', handleMessage);
+
+    // Notify parent that the inspector is ready to receive credentials
+    if (window.parent !== window) {
+      window.parent.postMessage({type: 'APPIUM_INSPECTOR_READY'}, '*');
+    }
+  };
+}
+
+export function initFromQueryString(loadNewSession) {
+  return async (dispatch, getState) => {
     if (!isFirstRun) {
       return;
     }
