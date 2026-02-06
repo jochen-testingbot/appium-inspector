@@ -987,6 +987,11 @@ function addCustomCaps(caps) {
 
 export function bindWindowClose() {
   return (dispatch, getState) => {
+    // Skip session cleanup when running inside an iframe (e.g. embedded in TestingBot),
+    // since the parent page reloading would unintentionally end the Appium session
+    if (window !== window.parent) {
+      return;
+    }
     window.addEventListener('beforeunload', async (evt) => {
       let {driver} = getState().inspector;
       if (driver) {
