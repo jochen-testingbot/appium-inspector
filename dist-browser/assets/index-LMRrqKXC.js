@@ -3570,7 +3570,7 @@ if (typeof ActiveXObject === "function") {
 if (typeof fetchApi !== "function") fetchApi = void 0;
 if (!fetchApi && !XmlHttpRequestApi && !ActiveXObjectApi) {
   try {
-    __vitePreload(() => import("./browser-ponyfill-DMvXIBTN.js").then((n2) => n2.b), true ? [] : void 0).then(function(mod) {
+    __vitePreload(() => import("./browser-ponyfill-BEmRNpIt.js").then((n2) => n2.b), true ? [] : void 0).then(function(mod) {
       fetchApi = mod.default;
     }).catch(function() {
     });
@@ -133663,6 +133663,9 @@ function addCustomCaps(caps) {
 }
 function bindWindowClose() {
   return (dispatch, getState) => {
+    if (window !== window.parent) {
+      return;
+    }
     window.addEventListener("beforeunload", async (evt) => {
       let {
         driver
