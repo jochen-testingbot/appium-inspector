@@ -7,10 +7,13 @@ import _ from 'lodash';
 const viteBase = import.meta.env.BASE_URL;
 const vitePath = `${_.trimEnd(viteBase, '/')}/`;
 
+const isAbsoluteUrl = viteBase.startsWith('http');
 const localesPath =
   process.env.NODE_ENV === 'development'
     ? '/locales' // 'public' folder contents are served at '/'
-    : `..${vitePath}locales`; // from 'dist-browser/assets/'
+    : isAbsoluteUrl
+      ? `${_.trimEnd(viteBase, '/')}/locales` // absolute URL base
+      : `..${vitePath}locales`; // from 'dist-browser/assets/'
 
 const i18NextBackendOptions = {
   backends: [LocalStorageBackend, HttpApi],

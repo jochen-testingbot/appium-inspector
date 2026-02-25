@@ -3570,7 +3570,7 @@ if (typeof ActiveXObject === "function") {
 if (typeof fetchApi !== "function") fetchApi = void 0;
 if (!fetchApi && !XmlHttpRequestApi && !ActiveXObjectApi) {
   try {
-    __vitePreload(() => import("./browser-ponyfill-BEmRNpIt.js").then((n2) => n2.b), true ? [] : void 0).then(function(mod) {
+    __vitePreload(() => import("./browser-ponyfill-P9tQ-5ns.js").then((n2) => n2.b), true ? [] : void 0).then(function(mod) {
       fetchApi = mod.default;
     }).catch(function() {
     });
@@ -9573,7 +9573,8 @@ var lodashExports = requireLodash();
 const _$1 = /* @__PURE__ */ getDefaultExportFromCjs(lodashExports);
 const viteBase = "https://testingbot.com/appium-inspector/";
 const vitePath = `${_$1.trimEnd(viteBase, "/")}/`;
-const localesPath = `..${vitePath}locales`;
+const isAbsoluteUrl = viteBase.startsWith("http");
+const localesPath = isAbsoluteUrl ? `${_$1.trimEnd(viteBase, "/")}/locales` : `..${vitePath}locales`;
 const i18NextBackendOptions = {
   backends: [Cache, Backend],
   backendOptions: [{}, {
