@@ -3447,7 +3447,7 @@ function makePromise(maybePromise) {
 }
 const scriptRel = "modulepreload";
 const assetsURL = function(dep) {
-  return "https://testingbot.com/appium-inspector/" + dep;
+  return "/appium-inspector/" + dep;
 };
 const seen = {};
 const __vitePreload = function preload(baseModule, deps, importerUrl) {
@@ -3570,7 +3570,7 @@ if (typeof ActiveXObject === "function") {
 if (typeof fetchApi !== "function") fetchApi = void 0;
 if (!fetchApi && !XmlHttpRequestApi && !ActiveXObjectApi) {
   try {
-    __vitePreload(() => import("./browser-ponyfill-P9tQ-5ns.js").then((n2) => n2.b), true ? [] : void 0).then(function(mod) {
+    __vitePreload(() => import("./browser-ponyfill-C7f2I6Yk.js").then((n2) => n2.b), true ? [] : void 0).then(function(mod) {
       fetchApi = mod.default;
     }).catch(function() {
     });
@@ -9571,7 +9571,7 @@ function requireLodash() {
 }
 var lodashExports = requireLodash();
 const _$1 = /* @__PURE__ */ getDefaultExportFromCjs(lodashExports);
-const viteBase = "https://testingbot.com/appium-inspector/";
+const viteBase = "/appium-inspector/";
 const vitePath = `${_$1.trimEnd(viteBase, "/")}/`;
 const isAbsoluteUrl = viteBase.startsWith("http");
 const localesPath = isAbsoluteUrl ? `${_$1.trimEnd(viteBase, "/")}/locales` : `..${vitePath}locales`;
@@ -133710,7 +133710,13 @@ function setPortFromUrl() {
     }
   };
 }
-const TESTINGBOT_ALLOWED_ORIGINS = ["https://testingbot.com", "https://www.testingbot.com", "https://app.testingbot.com"];
+const TESTINGBOT_ALLOWED_ORIGINS = [
+  "https://testingbot.test",
+  // dev origin
+  "https://testingbot.com",
+  "https://www.testingbot.com",
+  "https://app.testingbot.com"
+];
 function initPostMessageListener(loadNewSession) {
   return (dispatch, getState) => {
     if (typeof window === "undefined") {
@@ -133986,8 +133992,8 @@ function _temp$g(language_0) {
     label: `${language_0.name} (${language_0.original})`
   };
 }
-const darkTheme = "https://testingbot.com/appium-inspector/assets/prism-dark-LZPtkJrS.css";
-const lightTheme = "https://testingbot.com/appium-inspector/assets/prism-light-BXsi0LaA.css";
+const darkTheme = "/appium-inspector/assets/prism-dark-LZPtkJrS.css";
+const lightTheme = "/appium-inspector/assets/prism-light-BXsi0LaA.css";
 function Notification() {
   const $2 = compilerRuntimeExports.c(3);
   const {
@@ -135820,31 +135826,31 @@ const AdvancedServerParams = (t0) => {
   }
   return t12;
 };
-const BitBarLogo = "https://testingbot.com/appium-inspector/assets/bitbar_logo-BUfvFylt.svg";
-const BrowserStackLogo = "https://testingbot.com/appium-inspector/assets/browserstack_logo-MANmJ4A5.svg";
-const BrowserStackLogoDark = "https://testingbot.com/appium-inspector/assets/browserstack_logo_dark-CFE8VRRK.svg";
-const ExperitestLogo = "https://testingbot.com/appium-inspector/assets/experitest_logo-BAyRRFrC.svg";
-const FireflinkDeviceFarmWhite = "https://testingbot.com/appium-inspector/assets/fireflink_deviceFarm-DY2usZs2.svg";
-const FireflinkDeviceFarmColor = "https://testingbot.com/appium-inspector/assets/fireflink_deviceFarm_logo-BMasBWVo.svg";
-const HeadSpinLogo = "https://testingbot.com/appium-inspector/assets/headspin_logo-BsvsYObk.svg";
-const KobitonLogo = "https://testingbot.com/appium-inspector/assets/kobiton_logo-C1CoYW7C.svg";
-const KobitonLogoDark = "https://testingbot.com/appium-inspector/assets/kobiton_logo_dark-C-zsPWw7.svg";
-const MobitruLogo = "https://testingbot.com/appium-inspector/assets/mobitru_logo-snjKCr-S.svg";
-const PcloudyLogo = "https://testingbot.com/appium-inspector/assets/pcloudy_logo-DhGxphG6.svg";
-const PcloudyLogoDark = "https://testingbot.com/appium-inspector/assets/pcloudy_logo_dark-DF0EgR-W.svg";
-const PerfectoLogo = "https://testingbot.com/appium-inspector/assets/perfecto_logo-CUdebKf8.svg";
-const RemoteTestKitLogo = "https://testingbot.com/appium-inspector/assets/remotetestkit_logo-CSxMQRML.svg";
-const RobotQALogo = "https://testingbot.com/appium-inspector/assets/robotqa_logo-BgGAk24T.svg";
-const RobotQALogoDark = "https://testingbot.com/appium-inspector/assets/robotqa_logo_dark-C3XOkSMF.svg";
-const SauceLogo = "https://testingbot.com/appium-inspector/assets/sauce_logo-SejT4wfB.svg";
-const SauceLogoDark = "https://testingbot.com/appium-inspector/assets/sauce_logo_dark-CzUUkcNj.svg";
-const TestcribeLogo = "https://testingbot.com/appium-inspector/assets/testcribe_logo-LSvnRcsS.svg";
-const TestcribeLogoDark = "https://testingbot.com/appium-inspector/assets/testcribe_logo_dark-CdfbLOZj.svg";
-const TestingBotLogo = "https://testingbot.com/appium-inspector/assets/testingbot_logo-CHUoMLli.svg";
-const TestMuAILogo = "https://testingbot.com/appium-inspector/assets/testmuai_logo-dcuk33nX.svg";
-const TestMuAILogoDark = "https://testingbot.com/appium-inspector/assets/testmuai_logo_dark-C-y8sPiL.svg";
+const BitBarLogo = "/appium-inspector/assets/bitbar_logo-BUfvFylt.svg";
+const BrowserStackLogo = "/appium-inspector/assets/browserstack_logo-MANmJ4A5.svg";
+const BrowserStackLogoDark = "/appium-inspector/assets/browserstack_logo_dark-CFE8VRRK.svg";
+const ExperitestLogo = "/appium-inspector/assets/experitest_logo-BAyRRFrC.svg";
+const FireflinkDeviceFarmWhite = "/appium-inspector/assets/fireflink_deviceFarm-DY2usZs2.svg";
+const FireflinkDeviceFarmColor = "/appium-inspector/assets/fireflink_deviceFarm_logo-BMasBWVo.svg";
+const HeadSpinLogo = "/appium-inspector/assets/headspin_logo-BsvsYObk.svg";
+const KobitonLogo = "/appium-inspector/assets/kobiton_logo-C1CoYW7C.svg";
+const KobitonLogoDark = "/appium-inspector/assets/kobiton_logo_dark-C-zsPWw7.svg";
+const MobitruLogo = "/appium-inspector/assets/mobitru_logo-snjKCr-S.svg";
+const PcloudyLogo = "/appium-inspector/assets/pcloudy_logo-DhGxphG6.svg";
+const PcloudyLogoDark = "/appium-inspector/assets/pcloudy_logo_dark-DF0EgR-W.svg";
+const PerfectoLogo = "/appium-inspector/assets/perfecto_logo-CUdebKf8.svg";
+const RemoteTestKitLogo = "/appium-inspector/assets/remotetestkit_logo-CSxMQRML.svg";
+const RobotQALogo = "/appium-inspector/assets/robotqa_logo-BgGAk24T.svg";
+const RobotQALogoDark = "/appium-inspector/assets/robotqa_logo_dark-C3XOkSMF.svg";
+const SauceLogo = "/appium-inspector/assets/sauce_logo-SejT4wfB.svg";
+const SauceLogoDark = "/appium-inspector/assets/sauce_logo_dark-CzUUkcNj.svg";
+const TestcribeLogo = "/appium-inspector/assets/testcribe_logo-LSvnRcsS.svg";
+const TestcribeLogoDark = "/appium-inspector/assets/testcribe_logo_dark-CdfbLOZj.svg";
+const TestingBotLogo = "/appium-inspector/assets/testingbot_logo-CHUoMLli.svg";
+const TestMuAILogo = "/appium-inspector/assets/testmuai_logo-dcuk33nX.svg";
+const TestMuAILogoDark = "/appium-inspector/assets/testmuai_logo_dark-C-y8sPiL.svg";
 const TVLabsLogo = "data:image/svg+xml,%3csvg%20class='h-10%20w-auto%20hover:filter%20hover:drop-shadow-4%20text-white-500%20m-auto'%20width='1001'%20height='258'%20viewBox='0%200%201001%20258'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20data-phx-id='m2-phx-GBtRuHGOBqszmjyj'%3e%3cstyle%20type='text/css'%3e%20.logo-icon%20{%20fill:%20%234C2EFF;%20}%20.logo-text%20{%20fill:%20%23000000;%20}%20%3c/style%3e%3cpath%20d='M197.549%2058.9141C175.821%2059.0587%20154.963%2060.2734%20134.744%2062.298L144.346%202.86329L133.526%200L110.289%2065.1902C98.6855%2066.7809%2087.3429%2068.6897%2076.2034%2070.8589L36.6929%2036.9623L28.2513%2042.6599L52.909%2075.8913C34.8073%2080.1718%2017.2278%2085.1174%200.228433%2090.844C-1.71518%20166.562%208.90215%20217.117%2026.0466%20254.6C93.899%20263.624%20159.344%20254.716%20222.294%20227.5C221.191%20137.958%20212.227%2085.1464%20197.549%2058.9141ZM195.547%20195.975C159.46%20215.989%20118.934%20223.885%2074.3758%20220.848C64.5707%20195.339%2059.4651%20160.604%2060.0453%20114.878C98.0763%20100.301%20138.515%2094.0832%20181.884%2098.0166C192.443%20130.438%20196.91%20163.091%20195.547%20195.975Z'%20class='logo-icon'%3e%3c/path%3e%3cpath%20d='M156.907%20111.147C151.743%20111.986%20147.769%20118.031%20145.854%20126.649C145.796%20126.649%20145.767%20126.649%20145.738%20126.649C143.185%20135.037%20138.486%20140.908%20132.568%20141.862C127.404%20142.672%20122.299%20139.606%20118.209%20133.967C117.715%20133.186%20109.912%20119.911%2098.9755%20122.224C86.7917%20124.827%2078.6691%20142.412%2081.0189%20162.918C83.3686%20183.452%2095.1463%20197.971%20107.446%20196.525C123.604%20194.645%20121.197%20164.248%20137.558%20161.211C142.924%20160.228%20148.233%20163.67%20152.439%20169.627C155.92%20175.036%20160.214%20178.044%20164.478%20177.35C173.123%20175.961%20178.461%20160.025%20176.372%20141.747C174.254%20123.468%20165.552%20109.759%20156.907%20111.147Z'%20class='logo-icon'%3e%3c/path%3e%3cpath%20d='M571.999%2081.7625H538.087V229.091H648.757V199.793H571.999V81.7625Z'%20class='logo-text'%3e%3c/path%3e%3cpath%20d='M742.747%20138.334H742.283C735.408%20128.356%20723.253%20122.571%20707.443%20122.571C676.983%20122.571%20654.733%20145.42%20654.733%20176.945C654.733%20208.441%20676.954%20231.318%20707.443%20231.318C723.485%20231.318%20735.407%20225.331%20742.515%20215.122H742.979L743.907%20229.091H768.884V124.827H743.907L742.747%20138.334ZM712.519%20205.578C696.245%20205.578%20685.019%20193.806%20685.019%20176.945C685.019%20160.083%20696.245%20148.312%20712.519%20148.312C728.561%20148.312%20739.788%20160.083%20739.788%20176.945C739.788%20193.806%20728.561%20205.578%20712.519%20205.578Z'%20class='logo-text'%3e%3c/path%3e%3cpath%20d='M850.98%20122.6C837.694%20122.6%20827.164%20126.592%20819.824%20133.909H819.36V73.78H789.336V229.091H814.312L815.444%20215.324H815.908C822.783%20225.302%20835.141%20231.289%20850.951%20231.289C881.411%20231.289%20903.661%20208.441%20903.661%20176.916C903.69%20145.449%20881.44%20122.6%20850.98%20122.6ZM845.932%20205.578C829.658%20205.578%20818.664%20193.806%20818.664%20176.945C818.664%20160.083%20829.658%20148.312%20845.932%20148.312C862.439%20148.312%20873.433%20160.083%20873.433%20176.945C873.433%20193.806%20862.439%20205.578%20845.932%20205.578Z'%20class='logo-text'%3e%3c/path%3e%3cpath%20d='M960.142%20163.872C945.927%20162.975%20942.272%20160.98%20942.272%20156.323C942.272%20149.903%20948.016%20146.577%20959.677%20146.577C973.66%20146.577%20984.654%20150.134%20991.761%20157.018H992.893V129.281C984.422%20125.059%20972.035%20122.629%20958.981%20122.629C931.713%20122.629%20914.075%20136.165%20914.075%20157.249C914.075%20177.87%20924.837%20185.882%20952.106%20188.311C967.22%20189.642%20971.803%20191.869%20971.803%20197.422C971.803%20204.074%20966.088%20207.4%20954.398%20207.4C937.659%20207.4%20924.837%20202.946%20916.367%20194.096H915.003V222.063C924.17%20228.281%20937.92%20231.376%20955.79%20231.376C983.523%20231.376%201000%20218.737%201000%20197.422C1000%20175.412%20988.774%20165.636%20960.142%20163.872Z'%20class='logo-text'%3e%3c/path%3e%3cpath%20d='M443.923%20195.368H443.488L395.362%2081.7625H395.159H250.694L260.934%20106.954H310.742V229.091H341.84V106.954H373.402L426.315%20229.091H461.097L523.409%2081.7625H490.222L443.923%20195.368Z'%20class='logo-text'%3e%3c/path%3e%3c/svg%3e";
-const TVLabsLogoDark = "https://testingbot.com/appium-inspector/assets/tvlabs_logo_dark-D_PS7w1W.svg";
+const TVLabsLogoDark = "/appium-inspector/assets/tvlabs_logo_dark-D_PS7w1W.svg";
 const WebmateLogo = "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2027.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version='1.1'%20id='Ebene_1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20x='0px'%20y='0px'%20viewBox='93.4%20102.6%20920.7%20175.3'%20style='enable-background:new%2093.4%20102.6%20920.7%20175.3;'%20xml:space='preserve'%3e%3cstyle%20type='text/css'%3e%20.st0{fill:%23FFFFFF;}%20.st1{fill:%230000A0;}%20.st2{fill:%233C0078;}%20.st3{fill:%230000E1;}%20.st4{fill:%235000AA;}%20.st5{fill:%23AA0055;}%20.st6{fill:%23010101;}%20%3c/style%3e%3cpath%20class='st6'%20d='M974.2,165.1c13.1,0,19.9,7.8,21.2,20.3H951C953.1,172.5,961.2,165.1,974.2,165.1%20M1012.9,209.9h-20.1%20c-2.8,7.1-8.7,11-18.6,11c-13.5,0-21.8-7.4-23.3-20.8h63.2v-8.7c0-10.5-2.8-20.6-9.4-28.5c-6.5-7.8-16.5-12.7-30.6-12.7%20c-17.2,0-29.7,7.3-36.6,20.1c-3.4,6.5-5.1,13.8-5.1,22.6v2c0,25.3,13.5,41.3,41.1,41.3C994.9,236.2,1008.2,226.5,1012.9,209.9%20M920.8,234.1v-17.4h-5.8c-9.1,0-13.4-1-14.7-6.4c-0.7-2.7-1.1-6.7-1.1-12.1v-29.5h21.6v-16.5h-21.6v-27.7h-15.9%20c0,2.4-0.1,12.9-0.3,16.5c-0.4,6.7-1.3,9.8-4,11.1c-1.3,0.6-3.1,0.9-5.8,0.9h-7.3v15.8h15.9v32.6c0,16.6,2.6,25.6,10.8,29.7%20c4,1.8,10,3,17.6,3H920.8z%20M808.6,221.8c-8.5,0-12.8-3.4-12.8-10.2c0-3.6,1.6-6.4,4.8-8.5c3.8-2.4,7.8-3.6,17.8-5.1%20c7.4-1.1,13.1-2.8,16.5-5.3v4.4c0,7.8-4.4,16.1-12.4,21.1C818.5,220.6,814,221.8,808.6,221.8%20M835.6,217.7l2,16.4h15.1v-55.2%20c0-11.8-4.3-20.5-14.9-25c-5.4-2.4-12.2-3.6-21.2-3.6c-23.5,0-37.1,12.2-38.4,30.9h19.2c0.6-10.5,6.7-16.4,20.2-16.4%20c12.8,0,17.2,4.3,17.2,11.1c0,6.7-5.8,8.7-20.5,10.5c-10.2,1.6-16.4,2.7-21.2,4.4c-2.3,0.7-4.7,1.8-7,3.4%20c-6.7,4.1-10.7,11-10.7,20.1c0,13.4,9,21.9,26.7,21.9C819.1,236.2,830.1,228.4,835.6,217.7%20M652.4,234.1v-43.8%20c0-14.1,5.7-23.8,17.9-23.8c8.5,0,13.2,4,15.1,10.2c1.1,3.3,1.6,6.7,1.6,10.5v46.8h18.5v-46.4c0-12.4,4.8-21.2,17.1-21.2%20c12.5,0,17.1,8.5,17.1,21.5v46.1h18.6v-51.2c0-20.3-9.8-32.6-29-32.6c-13.4,0-22.3,6.5-26.5,17.1c-3.6-10.7-11.7-17.1-25.8-17.1%20c-12.9,0-21.5,6.7-25.9,16.9l-1.7-14.9h-15.7v81.8H652.4z%20M574.6,219.7c-13.4,0-21.9-10-21.9-26.9v-1.4c0-15.1,8.8-25.5,22.3-25.5%20c12.8,0,21.5,9.5,21.5,25.9v1.7C596.5,210.9,588.7,219.7,574.6,219.7%20M580.3,236.2c21.5,0,35.1-15.5,35.1-42.5v-2.1%20c0-18.4-6.1-30.3-16.6-36.6c-5.4-3-11.1-4.7-17.9-4.7c-13.4,0-22.9,6.8-27.7,17.6v-43.4H535v109.6h15.8l1.7-16.5%20C557,228.8,566.2,236.2,580.3,236.2%20M477.1,165.1c13.1,0,19.9,7.8,21.2,20.3h-44.4C456,172.5,464.2,165.1,477.1,165.1%20M515.8,209.9%20h-20.1c-2.8,7.1-8.7,11-18.6,11c-13.5,0-21.8-7.4-23.3-20.8h63.2v-8.7c0-10.5-2.8-20.6-9.4-28.5c-6.5-7.8-16.5-12.7-30.6-12.7%20c-17.2,0-29.7,7.3-36.6,20.1c-3.4,6.5-5.1,13.8-5.1,22.6v2c0,25.3,13.5,41.3,41.1,41.3C497.9,236.2,511.1,226.5,515.8,209.9%20M366.3,179.6l19.5,54.5h16.6l25.5-81.8h-18.2l-17.1,58.1l-19.9-58.1h-12.2l-21.5,58.2l-14.4-58.2h-18.5l22.1,81.8h16.9L366.3,179.6%20z'/%3e%3cpath%20d='M268.7,235v-89.5c0-23.7-19.2-42.9-42.9-42.9h-89.5c-23.7,0-42.9,19.2-42.9,42.9V235c0,23.7,19.2,42.9,42.9,42.9h89.5%20C249.5,277.9,268.7,258.7,268.7,235'/%3e%3cpath%20class='st1'%20d='M148.5,222.4c-1.4,0-2.9-0.3-4.3-1c-4.9-2.4-6.9-8.2-4.5-13.1l21.8-44.7c2.4-4.9,8.2-6.9,13.1-4.5%20c4.9,2.4,6.9,8.2,4.5,13.1l-21.8,44.7C155.6,220.4,152.1,222.4,148.5,222.4'/%3e%3cpath%20class='st2'%20d='M192.1,222.4c-1.4,0-2.9-0.3-4.3-1c-4.9-2.4-6.9-8.2-4.5-13.1l21.8-44.7c2.4-4.9,8.2-6.9,13.1-4.5%20c4.9,2.4,6.9,8.2,4.5,13.1l-21.8,44.7C199.2,220.4,195.7,222.4,192.1,222.4'/%3e%3cpath%20class='st3'%20d='M148.5,222.4c-3.6,0-7.1-2-8.8-5.5l-21.8-44.7c-2.4-4.9-0.3-10.7,4.5-13.1c4.9-2.4,10.7-0.4,13.1,4.5l21.8,44.7%20c2.4,4.9,0.3,10.7-4.5,13.1C151.4,222.1,149.9,222.4,148.5,222.4'/%3e%3cpath%20class='st4'%20d='M192.1,222.4c-3.6,0-7.1-2-8.8-5.5l-21.8-44.7c-2.4-4.9-0.4-10.7,4.5-13.1c4.9-2.4,10.7-0.4,13.1,4.5l21.8,44.7%20c2.4,4.9,0.3,10.7-4.5,13.1C195,222.1,193.5,222.4,192.1,222.4'/%3e%3cpath%20class='st5'%20d='M235.7,222.4c-3.6,0-7.1-2-8.8-5.5l-21.8-44.7c-2.4-4.9-0.4-10.7,4.5-13.1c4.9-2.4,10.7-0.4,13.1,4.5l21.8,44.7%20c2.4,4.9,0.3,10.7-4.5,13.1C238.6,222.1,237.1,222.4,235.7,222.4'/%3e%3c/svg%3e";
 const WebmateLogoDark = "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2027.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version='1.1'%20id='Ebene_1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20x='0px'%20y='0px'%20viewBox='93.4%20102.6%20920.7%20175.3'%20style='enable-background:new%2093.4%20102.6%20920.7%20175.3;'%20xml:space='preserve'%3e%3cstyle%20type='text/css'%3e%20.st0{fill:%23FFFFFF;}%20.st1{fill:%230000A0;}%20.st2{fill:%233C0078;}%20.st3{fill:%230000E1;}%20.st4{fill:%235000AA;}%20.st5{fill:%23AA0055;}%20.st6{fill:%23010101;}%20%3c/style%3e%3cpath%20class='st0'%20d='M974.2,165.1c13.1,0,19.9,7.8,21.2,20.3H951C953.1,172.5,961.2,165.1,974.2,165.1%20M1012.9,209.9h-20.1%20c-2.8,7.1-8.7,11-18.6,11c-13.5,0-21.8-7.4-23.3-20.8h63.2v-8.7c0-10.5-2.8-20.6-9.4-28.5c-6.5-7.8-16.5-12.7-30.6-12.7%20c-17.2,0-29.7,7.3-36.6,20.1c-3.4,6.5-5.1,13.8-5.1,22.6v2c0,25.3,13.5,41.3,41.1,41.3C994.9,236.2,1008.2,226.5,1012.9,209.9%20M920.8,234.1v-17.4h-5.8c-9.1,0-13.4-1-14.7-6.4c-0.7-2.7-1.1-6.7-1.1-12.1v-29.5h21.6v-16.5h-21.6v-27.7h-15.9%20c0,2.4-0.1,12.9-0.3,16.5c-0.4,6.7-1.3,9.8-4,11.1c-1.3,0.6-3.1,0.9-5.8,0.9h-7.3v15.8h15.9v32.6c0,16.6,2.6,25.6,10.8,29.7%20c4,1.8,10,3,17.6,3H920.8z%20M808.6,221.8c-8.5,0-12.8-3.4-12.8-10.2c0-3.6,1.6-6.4,4.8-8.5c3.8-2.4,7.8-3.6,17.8-5.1%20c7.4-1.1,13.1-2.8,16.5-5.3v4.4c0,7.8-4.4,16.1-12.4,21.1C818.5,220.6,814,221.8,808.6,221.8%20M835.6,217.7l2,16.4h15.1v-55.2%20c0-11.8-4.3-20.5-14.9-25c-5.4-2.4-12.2-3.6-21.2-3.6c-23.5,0-37.1,12.2-38.4,30.9h19.2c0.6-10.5,6.7-16.4,20.2-16.4%20c12.8,0,17.2,4.3,17.2,11.1c0,6.7-5.8,8.7-20.5,10.5c-10.2,1.6-16.4,2.7-21.2,4.4c-2.3,0.7-4.7,1.8-7,3.4%20c-6.7,4.1-10.7,11-10.7,20.1c0,13.4,9,21.9,26.7,21.9C819.1,236.2,830.1,228.4,835.6,217.7%20M652.4,234.1v-43.8%20c0-14.1,5.7-23.8,17.9-23.8c8.5,0,13.2,4,15.1,10.2c1.1,3.3,1.6,6.7,1.6,10.5v46.8h18.5v-46.4c0-12.4,4.8-21.2,17.1-21.2%20c12.5,0,17.1,8.5,17.1,21.5v46.1h18.6v-51.2c0-20.3-9.8-32.6-29-32.6c-13.4,0-22.3,6.5-26.5,17.1c-3.6-10.7-11.7-17.1-25.8-17.1%20c-12.9,0-21.5,6.7-25.9,16.9l-1.7-14.9h-15.7v81.8H652.4z%20M574.6,219.7c-13.4,0-21.9-10-21.9-26.9v-1.4c0-15.1,8.8-25.5,22.3-25.5%20c12.8,0,21.5,9.5,21.5,25.9v1.7C596.5,210.9,588.7,219.7,574.6,219.7%20M580.3,236.2c21.5,0,35.1-15.5,35.1-42.5v-2.1%20c0-18.4-6.1-30.3-16.6-36.6c-5.4-3-11.1-4.7-17.9-4.7c-13.4,0-22.9,6.8-27.7,17.6v-43.4H535v109.6h15.8l1.7-16.5%20C557,228.8,566.2,236.2,580.3,236.2%20M477.1,165.1c13.1,0,19.9,7.8,21.2,20.3h-44.4C456,172.5,464.2,165.1,477.1,165.1%20M515.8,209.9%20h-20.1c-2.8,7.1-8.7,11-18.6,11c-13.5,0-21.8-7.4-23.3-20.8h63.2v-8.7c0-10.5-2.8-20.6-9.4-28.5c-6.5-7.8-16.5-12.7-30.6-12.7%20c-17.2,0-29.7,7.3-36.6,20.1c-3.4,6.5-5.1,13.8-5.1,22.6v2c0,25.3,13.5,41.3,41.1,41.3C497.9,236.2,511.1,226.5,515.8,209.9%20M366.3,179.6l19.5,54.5h16.6l25.5-81.8h-18.2l-17.1,58.1l-19.9-58.1h-12.2l-21.5,58.2l-14.4-58.2h-18.5l22.1,81.8h16.9L366.3,179.6%20z'/%3e%3cpath%20class='st0'%20d='M268.7,235v-89.5c0-23.7-19.2-42.9-42.9-42.9h-89.5c-23.7,0-42.9,19.2-42.9,42.9V235%20c0,23.7,19.2,42.9,42.9,42.9h89.5C249.5,277.9,268.7,258.7,268.7,235'/%3e%3cpath%20class='st1'%20d='M148.5,222.4c-1.4,0-2.9-0.3-4.3-1c-4.9-2.4-6.9-8.2-4.5-13.1l21.8-44.7c2.4-4.9,8.2-6.9,13.1-4.5%20c4.9,2.4,6.9,8.2,4.5,13.1l-21.8,44.7C155.6,220.4,152.1,222.4,148.5,222.4'/%3e%3cpath%20class='st2'%20d='M192.1,222.4c-1.4,0-2.9-0.3-4.3-1c-4.9-2.4-6.9-8.2-4.5-13.1l21.8-44.7c2.4-4.9,8.2-6.9,13.1-4.5%20c4.9,2.4,6.9,8.2,4.5,13.1l-21.8,44.7C199.2,220.4,195.7,222.4,192.1,222.4'/%3e%3cpath%20class='st3'%20d='M148.5,222.4c-3.6,0-7.1-2-8.8-5.5l-21.8-44.7c-2.4-4.9-0.3-10.7,4.5-13.1c4.9-2.4,10.7-0.4,13.1,4.5l21.8,44.7%20c2.4,4.9,0.3,10.7-4.5,13.1C151.4,222.1,149.9,222.4,148.5,222.4'/%3e%3cpath%20class='st4'%20d='M192.1,222.4c-3.6,0-7.1-2-8.8-5.5l-21.8-44.7c-2.4-4.9-0.4-10.7,4.5-13.1c4.9-2.4,10.7-0.4,13.1,4.5l21.8,44.7%20c2.4,4.9,0.3,10.7-4.5,13.1C195,222.1,193.5,222.4,192.1,222.4'/%3e%3cpath%20class='st5'%20d='M235.7,222.4c-3.6,0-7.1-2-8.8-5.5l-21.8-44.7c-2.4-4.9-0.4-10.7,4.5-13.1c4.9-2.4,10.7-0.4,13.1,4.5l21.8,44.7%20c2.4,4.9,0.3,10.7-4.5,13.1C238.6,222.1,237.1,222.4,235.7,222.4'/%3e%3c/svg%3e";
 var define_process_env_default$b = {};

@@ -1045,6 +1045,7 @@ export function setPortFromUrl() {
 
 // Allowed origins for postMessage communication (for iframe embedding)
 const TESTINGBOT_ALLOWED_ORIGINS = [
+  'https://testingbot.test', // dev origin
   'https://testingbot.com',
   'https://www.testingbot.com',
   'https://app.testingbot.com',
